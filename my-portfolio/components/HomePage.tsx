@@ -1,44 +1,38 @@
 import React from "react";
 import Image from "next/image";
-import Navbar from "./Navbar";
+import { Spotlight } from "./ui/Spotlight";
 
 function HomePage() {
   return (
-    <div>
-      <Navbar />
-      <section className="w-full max-w-6xl mx-auto py-32 md:py-32 lg:py-40 px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
-         
-          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              About Me
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Hi there! I&apos;m Manusha Dananjaya, a passionate web developer
-              with a keen eye for design. I&apos;ve been coding since I was a
-              teenager, and I love the challenge of turning ideas into
-              beautiful, functional websites.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              When I&apos;m not writing code, you can find me exploring the
-              great outdoors, reading the latest tech blogs, or experimenting
-              with new recipes in the kitchen. I&apos;m always eager to learn
-              and grow, and I&apos;m excited to share my skills and experiences
-              with others.
-            </p>
-          </div>
+    <div className="relative min-h-screen flex items-center justify-center">
+      
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      <section className="relative z-10 flex flex-col md:flex-row items-center max-w-6xl mx-auto p-6 gap-8">
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            HI, I&apos;M <span className="block">MANUSHA</span>
+          </h1>
+          <p className="text-muted-foreground leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti,
+            voluptas.
+          </p>
+        </div>
 
-          
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <Image
-              src="/IMG_5020.jpg" 
-              alt="Manusha Dananjaya"
-              width={300}
-              height={300}
-              className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg"
-              style={{ aspectRatio: "1 / 1", objectFit: "cover" }}
-            />
-          </div>
+        <div className="relative w-full md:w-1/2">
+          <div className="absolute inset-1 -skew-x-12 bg-zinc-800 opacity-80"></div>
+          <Image
+            src="/IMG_5020.jpg"
+            alt="Manusha Dananjaya"
+            width={500}
+            height={500}
+            className="relative object-cover z-10"
+            style={{
+              clipPath: "polygon(30% 0%, 100% 0%, 100% 85%, 0% 85%)",
+            }}
+          />
         </div>
       </section>
     </div>
