@@ -22,7 +22,7 @@ function HomePage() {
         </div>
 
         <div className="relative w-full md:w-1/2">
-          <div className="absolute inset-1 -skew-x-12 bg-zinc-800 opacity-80"></div>
+          <div className="absolute inset-1 -skew-x-12 h-3/4 bg-zinc-800 opacity-80"></div>
           <Image
             src="/IMG_5020.jpg"
             alt="Manusha Dananjaya"
