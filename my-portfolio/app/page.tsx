@@ -1,3 +1,4 @@
+import {ExperiencePage} from "@/components/ExperiencePage";
 import HomePage from "@/components/HomePage";
 import Navbar from "@/components/Navbar";
 import ProfilePage from "@/components/ProjectPage";
@@ -12,6 +13,7 @@ export default function Home() {
       <TracingBeam className="my-28" >
         <HomePage />
         <ProfilePage />
+        <ExperiencePage />
       </TracingBeam>
     </>
   );

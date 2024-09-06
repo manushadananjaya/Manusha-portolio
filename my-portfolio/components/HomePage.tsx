@@ -5,7 +5,6 @@ import { Spotlight } from "./ui/Spotlight";
 function HomePage() {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
@@ -22,7 +21,15 @@ function HomePage() {
         </div>
 
         <div className="relative w-full md:w-1/2">
-          <div className="absolute inset-1 -skew-x-12 h-3/4 bg-zinc-800 opacity-80"></div>
+          
+          {/* <div
+            className="absolute inset-0 bg-zinc-800 opacity-80 z-0"
+            style={{
+              clipPath: "polygon(30% 0%, 100% 0%, 100% 85%, 0% 85%)",
+            }}
+          ></div> */}
+
+         
           <Image
             src="/IMG_5020.jpg"
             alt="Manusha Dananjaya"

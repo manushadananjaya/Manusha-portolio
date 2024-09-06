@@ -10,7 +10,7 @@ function ProfilePage() {
 
   return (
     <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl items-center mx-auto text-4xl text-center md:text-5xl font-bold text-neutral-200 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl items-center mx-auto text-4xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
         Get to know your about my Projects
       </h2>
       <Carousel items={cards} />{" "}
