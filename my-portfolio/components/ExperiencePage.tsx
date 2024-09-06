@@ -35,14 +35,14 @@ export function ExperiencePage() {
             {expandedSections[0] ? (
               <>
                 <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal leading-relaxed mb-6">
-                  Dedicated Marketing and Web Development Lead with a strong
-                  passion for technology and innovation. I'm currently
-                  spearheading the marketing and web development efforts for the
-                  IEEE Robotics and Automation Society at the University of
-                  Moratuwa. As a technology enthusiast and a creative marketer,
-                  I am committed to advancing the field of robotics and
-                  automation through effective digital strategies and a
-                  compelling online presence.
+                    Dedicated Marketing and Web Development Lead with a strong
+                    passion for technology and innovation. I&apos;m currently
+                    spearheading the marketing and web development efforts for the
+                    IEEE Robotics and Automation Society at the University of
+                    Moratuwa. As a technology enthusiast and a creative marketer,
+                    I am committed to advancing the field of robotics and
+                    automation through effective digital strategies and a
+                    compelling online presence.
                 </p>
                 <ul className="list-disc list-inside mb-4 text-neutral-800 dark:text-neutral-200 text-xs md:text-sm space-y-2">
                   <li>
@@ -53,10 +53,10 @@ export function ExperiencePage() {
                     Developing comprehensive digital marketing strategies to
                     enhance brand visibility.
                   </li>
-                  <li>
-                    Managing and optimizing the society's website for better
+                <li>
+                    Managing and optimizing the society&apos;s website for better
                     user engagement.
-                  </li>
+                </li>
                   <li>
                     Creating and curating engaging content including articles,
                     videos, and social media campaigns.
