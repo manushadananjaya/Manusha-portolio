@@ -6,6 +6,7 @@ import ProfilePage from "@/components/ProjectPage";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import Image from "next/image";
 import {BlogsPage} from "@/components/BlogsPage";
+import ContactPage from "@/components/ContactPage";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <ProfilePage />
         <ExperiencePage />
         <BlogsPage />
+        <ContactPage />
       </TracingBeam>
     </>
   );
