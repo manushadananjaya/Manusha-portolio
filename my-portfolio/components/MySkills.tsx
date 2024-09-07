@@ -11,6 +11,25 @@ type Tab = {
   value: string;
   content?: string | React.ReactNode;
 };
+// BubbleImage Component for 3D Bubble Effect
+const BubbleImage = ({ src, alt }: { src: string; alt: string }) => {
+  return (
+    <motion.div
+      className="flex items-center justify-center p-4 rounded-full bg-white dark:bg-gray-900 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+      whileHover={{ scale: 1.1, }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={100}
+        height={100}
+        className="rounded-md"
+      />
+    </motion.div>
+  );
+};
+
 
 // Sections Data
 const sections = [
@@ -18,49 +37,17 @@ const sections = [
     title: "Programming Languages",
     value: "programming-languages",
     content: (
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-        <Image
-          src="/logos/java.png"
-          alt="Java"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/python-logo.png"
-          alt="Python"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/c-logo.png"
-          alt="C"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/cpp.png"
-          alt="C++"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/javascript.png"
-          alt="JavaScript"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/typescript.png"
-          alt="TypeScript"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {[
+          { src: "/logos/java.png", alt: "Java" },
+          { src: "/logos/python-logo.png", alt: "Python" },
+          { src: "/logos/c-logo.png", alt: "C" },
+          { src: "/logos/cpp.png", alt: "C++" },
+          { src: "/logos/javascript.png", alt: "JavaScript" },
+          { src: "/logos/typescript.png", alt: "TypeScript" },
+        ].map((logo, idx) => (
+          <BubbleImage key={idx} src={logo.src} alt={logo.alt} />
+        ))}
       </div>
     ),
   },
@@ -68,35 +55,15 @@ const sections = [
     title: "Databases",
     value: "databases",
     content: (
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-        <Image
-          src="/logos/mysql.png"
-          alt="MySQL"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/postgres.png"
-          alt="PostgreSQL"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/mongo.png"
-          alt="MongoDB"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/mssql.png"
-          alt="MSSQL"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {[
+          { src: "/logos/mysql.png", alt: "MySQL" },
+          { src: "/logos/postgres.png", alt: "PostgreSQL" },
+          { src: "/logos/mongo.png", alt: "MongoDB" },
+          { src: "/logos/mssql.png", alt: "MSSQL" },
+        ].map((logo, idx) => (
+          <BubbleImage key={idx} src={logo.src} alt={logo.alt} />
+        ))}
       </div>
     ),
   },
@@ -104,35 +71,15 @@ const sections = [
     title: "Frameworks",
     value: "frameworks",
     content: (
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-        <Image
-          src="/logos/react.png"
-          alt="React"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/node.png"
-          alt="Vue"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/next.png"
-          alt="Next.js"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/ex.png"
-          alt="Express"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {[
+          { src: "/logos/react.png", alt: "React" },
+          { src: "/logos/node.png", alt: "Node.js" },
+          { src: "/logos/next.png", alt: "Next.js" },
+          { src: "/logos/ex.png", alt: "Express" },
+        ].map((logo, idx) => (
+          <BubbleImage key={idx} src={logo.src} alt={logo.alt} />
+        ))}
       </div>
     ),
   },
@@ -140,14 +87,8 @@ const sections = [
     title: "Mobile Development",
     value: "mobile",
     content: (
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-        <Image
-          src="/logos/reactnative.png"
-          alt="React Native"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <BubbleImage src="/logos/reactnative.png" alt="React Native" />
       </div>
     ),
   },
@@ -155,32 +96,19 @@ const sections = [
     title: "Project Management",
     value: "pm",
     content: (
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-        <Image
-          src="/logos/clickup.png"
-          alt="ClickUp"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/jira.png"
-          alt="Jira"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
-        <Image
-          src="/logos/trello.png"
-          alt="Trello"
-          width={100}
-          height={100}
-          layout="responsive"
-        />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {[
+          { src: "/logos/clickup.png", alt: "ClickUp" },
+          { src: "/logos/jira.png", alt: "Jira" },
+          { src: "/logos/trello.png", alt: "Trello" },
+        ].map((logo, idx) => (
+          <BubbleImage key={idx} src={logo.src} alt={logo.alt} />
+        ))}
       </div>
     ),
   },
 ];
+
 
 // Tabs Component
 export const Tabs = ({
@@ -219,7 +147,7 @@ export const Tabs = ({
             {active.value === tab.value && (
               <motion.div
                 layoutId="clickedbutton"
-                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
                 className="absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full"
               />
             )}

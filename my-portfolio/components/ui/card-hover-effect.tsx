@@ -19,7 +19,7 @@ export const HoverEffect = ({
   return (
     <div className={cn("space-y-10 py-10", className)}>
       {sections.map((section, sectionIdx) => (
-        <div key={sectionIdx}>
+        <div key={sectionIdx}> 
           <h3 className="text-3xl font-bold text-neutral-200 dark:text-white mb-6">
             {section.title}
           </h3>
