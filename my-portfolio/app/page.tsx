@@ -7,6 +7,7 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import Image from "next/image";
 import {BlogsPage} from "@/components/BlogsPage";
 import ContactPage from "@/components/ContactPage";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
@@ -14,13 +15,31 @@ export default function Home() {
     <>
       <Navbar />
       <TracingBeam className="my-28">
-        <HomePage />
-        <MySkills />
-        <ProfilePage />
-        <ExperiencePage />
-        <BlogsPage />
-        <ContactPage />
+        <section id="home">
+          <HomePage />
+        </section>
+
+        <section id="skills">
+          <MySkills />
+        </section>
+
+        <section id="projects">
+          <ProfilePage />
+        </section>
+
+        <section id="experience">
+          <ExperiencePage />
+        </section>
+
+        <section id="blogs">
+          <BlogsPage />
+        </section>
+
+        <section id="contact">
+          <ContactPage />
+        </section>
       </TracingBeam>
+      <Footer />
     </>
   );
 }

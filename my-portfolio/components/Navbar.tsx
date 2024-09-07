@@ -11,28 +11,29 @@ export default function Component() {
         </Link>
         <nav className="hidden md:flex items-center gap-4 sm:gap-6">
           <Link
-            href="/HomePage.tsx"
+            href="#home"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             prefetch={false}
           >
             Home
           </Link>
+
           <Link
-            href="#"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            prefetch={false}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
+            href="#projects"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             prefetch={false}
           >
             Projects
           </Link>
           <Link
-            href="#"
+            href="#experience"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
+            prefetch={false}
+          >
+            Experiences
+          </Link>
+          <Link
+            href="#contact"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             prefetch={false}
           >
