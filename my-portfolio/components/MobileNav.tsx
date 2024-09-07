@@ -36,23 +36,16 @@ export default function MobileNav() {
         </div>
         <nav className="flex flex-col items-start gap-4 p-4">
           <Link
-            href="#"
+            href="#home"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             onClick={toggleMenu}
             prefetch={false}
           >
             Home
           </Link>
+
           <Link
-            href="#"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            onClick={toggleMenu}
-            prefetch={false}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
+            href="#projects"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             onClick={toggleMenu}
             prefetch={false}
@@ -60,7 +53,15 @@ export default function MobileNav() {
             Projects
           </Link>
           <Link
-            href="#"
+            href="#experience"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
+            onClick={toggleMenu}
+            prefetch={false}
+          >
+            Experiences 
+          </Link>
+          <Link
+            href="#contact"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             onClick={toggleMenu}
             prefetch={false}
