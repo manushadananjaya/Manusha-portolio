@@ -1,20 +1,79 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { Tab } from "@headlessui/react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { motion } from "framer-motion";
 
 function ProfilePage() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const renderCards = (projects: any[]) =>
+    projects.map((card, index) => (
+      <Card key={card.src} card={card} index={index} />
+    ));
+
+
+  const tabs = [
+    {
+      title: "Web Projects",
+      content: <Carousel items={renderCards(webProjects)} />,
+    },
+    {
+      title: "Mobile Applications",
+      content: <Carousel items={renderCards(mobileApplications)} />,
+    },
+    {
+      title: "Desktop Applications",
+      content: <Carousel items={renderCards(desktopApplications)} />,
+    },
+    {
+      title: "Micro-controller Projects",
+      content: <Carousel items={renderCards(microControllerProjects)} />,
+    },
+  ];
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full px-3 h-full py-20">
       <h2 className="max-w-7xl items-center mx-auto text-4xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
         Get to know about my Projects
       </h2>
-      <Carousel items={cards} />{" "}
-      
+
+      <div className="flex flex-row items-center justify-center overflow-auto no-visible-scrollbar max-w-full w-full space-x-4 mt-8">
+        {tabs.map((tab, idx) => (
+          <button
+            key={tab.title}
+            onClick={() => setSelectedIndex(idx)}
+            className={`relative px-4 py-2 rounded-full transition-colors duration-300 ${
+              selectedIndex === idx
+                ? "bg-gray-200 dark:bg-blue-700 text-black dark:text-white"
+                : "bg-transparent text-blue-700 dark:text-blue-100 hover:bg-white/[0.12] hover:text-white"
+            }`}
+          >
+            {selectedIndex === idx && (
+              <motion.div
+                layoutId="clickedbutton"
+                transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
+                className="absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full"
+              />
+            )}
+            <span className="relative block text-black dark:text-white">
+              {tab.title}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        key={selectedIndex}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        transition={{ duration: 0.5 }}
+        className="mt-8"
+      >
+        {tabs[selectedIndex].content}
+      </motion.div>
     </div>
   );
 }
@@ -49,7 +108,7 @@ const DummyContent = () => {
   );
 };
 
-const data = [
+const webProjects = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
@@ -57,35 +116,64 @@ const data = [
     content: <DummyContent />,
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+];
+
+const mobileApplications = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
   {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+
+];
+
+const desktopApplications = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
   {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: <DummyContent />,
   },
+];
+
+const microControllerProjects = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  
 ];
 
 export default ProfilePage;
