@@ -16,7 +16,7 @@ function ProfilePage() {
 
   const tabs = [
     {
-      title: "Web Projects",
+      title: "Web Applications",
       content: <Carousel items={renderCards(webProjects)} />,
     },
     {
