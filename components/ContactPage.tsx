@@ -1,10 +1,9 @@
 "use client";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { sendContactForm } from "@/service/contactService"; 
 
 interface FormData {
   name: string;
@@ -19,36 +18,10 @@ export default function ContactPage() {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
-
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(false);
-
-    try {
-      console.log(formData);
-      await sendContactForm(formData); 
-      setSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
   };
 
   return (
@@ -64,7 +37,10 @@ export default function ContactPage() {
               form below and I'll get back to you as soon as possible.
             </p>
           </div>
-          <form className="w-full max-w-md space-y-4" onSubmit={handleSubmit}>
+          <form
+            className="w-full max-w-md space-y-4"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
@@ -99,13 +75,9 @@ export default function ContactPage() {
                 required
               />
             </div>
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Sending..." : "Send Message"}
+            <Button type="submit" className="w-full">
+              Send Message
             </Button>
-            {error && <p className="text-red-500">{error}</p>}
-            {success && (
-              <p className="text-green-500">Message sent successfully!</p>
-            )}
           </form>
         </div>
       </div>
