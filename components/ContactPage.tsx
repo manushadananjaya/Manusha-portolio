@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { sendContactForm } from "@/service/contactService"; 
 
 interface FormData {
   name: string;
@@ -35,27 +36,16 @@ export default function ContactPage() {
     setSuccess(false);
 
     try {
-      const res = await fetch("/api/sendmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      console.log(formData);
+      await sendContactForm(formData); 
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
       });
-
-      if (res.ok) {
-        setSuccess(true);
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        const responseJson = await res.json();
-        setError(responseJson.error || "Failed to send the message");
-      }
-    } catch (err) {
-      setError("Something went wrong");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
