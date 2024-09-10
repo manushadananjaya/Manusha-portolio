@@ -189,6 +189,30 @@ const DummyContent2 = () => {
               className="h-auto w-full rounded-xl object-cover"
               priority
             />
+            <Image
+              src="/projectPhotos/rise2.png"
+              alt="project-photos"
+              height={400}
+              width={400}
+              className="h-auto w-full rounded-xl object-cover"
+              priority
+            />
+            <Image
+              src="/projectPhotos/rise3.png"
+              alt="project-photos"
+              height={400}
+              width={400}
+              className="h-auto w-full rounded-xl object-cover"
+              priority
+            />
+            <Image
+              src="/projectPhotos/rise4.png"
+              alt="project-photos"
+              height={400}
+              width={400}
+              className="h-auto w-full rounded-xl object-cover"
+              priority
+            />
           </div>
 
           <div className="flex justify-center gap-4 mt-6">
