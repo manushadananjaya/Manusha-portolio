@@ -4,7 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 
 function HomePage() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center">
+    <div className="relative min-h-screen flex-col items-center justify-center">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
@@ -15,21 +15,14 @@ function HomePage() {
             HI, I&apos;M <span className="block">MANUSHA</span>
           </h1>
           <p className="text-muted-foreground leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti,
-            voluptas.
+            I am a full-stack developer and a tech enthusiast. I have a passion
+            for building web applications and solving problems. I am always
+            looking for opportunities to learn and grow. Contact me if you have
+            a project in mind or just want to say hi.
           </p>
         </div>
 
         <div className="relative w-full md:w-1/2">
-          
-          {/* <div
-            className="absolute inset-0 bg-zinc-800 opacity-80 z-0"
-            style={{
-              clipPath: "polygon(30% 0%, 100% 0%, 100% 85%, 0% 85%)",
-            }}
-          ></div> */}
-
-         
           <Image
             src="/IMG_5020.jpg"
             alt="Manusha Dananjaya"
@@ -42,6 +35,16 @@ function HomePage() {
           />
         </div>
       </section>
+      <div className="flex justify-center mb-8 mt-1">
+        <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-8 py-3 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
+          <a
+            href="/Manusha-Dananjaya_SE.pdf"
+            download="Manusha-Dananjaya_SE.pdf"
+          >
+            Download My Resume
+          </a>
+        </button>
+      </div>
     </div>
   );
 }
