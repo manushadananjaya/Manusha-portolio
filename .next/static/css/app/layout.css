@@ -1007,6 +1007,9 @@ video {
 .z-\[60\] {
   z-index: 60;
 }
+.m-10 {
+  margin: 2.5rem;
+}
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -1068,6 +1071,24 @@ video {
 }
 .mt-auto {
   margin-top: auto;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+.ml-6 {
+  margin-left: 1.5rem;
+}
+.ml-8 {
+  margin-left: 2rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
 }
 .block {
   display: block;
@@ -1590,6 +1611,9 @@ video {
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pl-8 {
+  padding-left: 2rem;
 }
 .text-left {
   text-align: left;
