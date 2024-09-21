@@ -35,7 +35,7 @@ function HomePage() {
           />
         </div>
       </section>
-      <div className="flex justify-center mb-8 mt-1">
+      <div className="flex justify-center mb-24">
         <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-8 py-3 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
           <a
             href="/Manusha-Dananjaya_SE.pdf"

@@ -14,7 +14,6 @@ function ProfilePage() {
       <Card key={card.src} card={card} index={index} />
     ));
 
-
   const tabs = [
     {
       title: "Web Applications",
@@ -35,21 +34,22 @@ function ProfilePage() {
   ];
 
   return (
-    <div className="w-full px-3 h-full py-20">
-      <h2 className="max-w-7xl items-center mx-auto text-4xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
+    <div className="w-full px-4 py-20">
+      <h2 className="max-w-7xl mx-auto text-3xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
         Get to know about my Projects
       </h2>
 
-      <div className="flex flex-row items-center justify-center overflow-auto no-visible-scrollbar max-w-full w-full space-x-4 mt-8">
+      {/* Tabs Container */}
+      <div className="flex flex-row pl-24 ml-4 items-center justify-center overflow-auto no-visible-scrollbar space-x-4 max-w-full px-4 mt-9">
         {tabs.map((tab, idx) => (
           <button
             key={tab.title}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative px-4 py-2 rounded-full transition-colors duration-300 ${
+            className={`relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors duration-300 ${
               selectedIndex === idx
                 ? "bg-gray-200 dark:bg-blue-700 text-black dark:text-white"
                 : "bg-transparent text-blue-700 dark:text-blue-100 hover:bg-white/[0.12] hover:text-white"
-            }`}
+            } text-sm md:text-base`}
           >
             {selectedIndex === idx && (
               <motion.div
@@ -65,13 +65,14 @@ function ProfilePage() {
         ))}
       </div>
 
+      {/* Tab Content */}
       <motion.div
         key={selectedIndex}
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.5 }}
-        className="mt-8"
+        className="mt-8 max-w-7xl mx-auto px-4"
       >
         {tabs[selectedIndex].content}
       </motion.div>
@@ -79,16 +80,15 @@ function ProfilePage() {
   );
 }
 
-
 const DummyContent = () => {
   return (
     <>
       {Array.from({ length: 1 }).map((_, index) => (
         <div
           key={"dummy-content" + index}
-          className="bg-white dark:bg-neutral-800 p-8 md:p-10 rounded-3xl mb-6 shadow-md"
+          className="bg-white dark:bg-neutral-800 p-4 md:p-10 rounded-3xl mb-6 shadow-md"
         >
-          <p className="text-neutral-700 dark:text-neutral-300 text-lg md:text-xl leading-relaxed font-sans max-w-3xl mx-auto mb-6">
+          <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-xl leading-relaxed font-sans max-w-3xl mx-auto mb-6">
             <span className="font-semibold text-neutral-800 dark:text-neutral-100">
               Voom.ai is a platform that helps you do more with AI.
             </span>{" "}
@@ -100,47 +100,49 @@ const DummyContent = () => {
             content directly on the platform.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Images */}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <Image
               src="/projectPhotos/voom.png"
               alt="project-photos"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               className="h-auto w-full rounded-xl object-cover"
               priority
             />
             <Image
               src="/projectPhotos/voom2.png"
               alt="project-photos"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               className="h-auto w-full rounded-xl object-cover"
               priority
             />
             <Image
               src="/projectPhotos/voom3.png"
               alt="project-photos"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               className="h-auto w-full rounded-xl object-cover"
               priority
             />
             <Image
               src="/projectPhotos/voom4.png"
               alt="project-photos"
-              height={400}
-              width={400}
+              height={300}
+              width={300}
               className="h-auto w-full rounded-xl object-cover"
               priority
             />
           </div>
 
+          {/* Buttons */}
           <div className="flex justify-center gap-4 mt-6">
             <Link
               href="https://voom-zeta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 text-sm md:text-base"
             >
               Visit VOOM
             </Link>
@@ -148,7 +150,7 @@ const DummyContent = () => {
               href="https://github.com/manushadananjaya/voom"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300"
+              className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 text-sm md:text-base"
             >
               View Project on Github
             </Link>
@@ -250,30 +252,25 @@ const mobileApplications = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
   },
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
   },
-
 ];
 
 const desktopApplications = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
   },
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
@@ -281,10 +278,13 @@ const microControllerProjects = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
   },
-  
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1526481280698-8fccd5ab8f31?auto=format&fit=crop&w=1000&q=80",
+  },
 ];
 
 export default ProfilePage;

@@ -11,25 +11,24 @@ type Tab = {
   value: string;
   content?: string | React.ReactNode;
 };
-// BubbleImage Component for 3D Bubble Effect
+
 const BubbleImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <motion.div
       className="flex items-center justify-center p-4 rounded-full bg-white dark:bg-gray-900 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
-      whileHover={{ scale: 1.1, }}
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
       <Image
         src={src}
         alt={alt}
-        width={100}
-        height={100}
+        width={80}
+        height={80}
         className="rounded-md"
       />
     </motion.div>
   );
 };
-
 
 // Sections Data
 const sections = [
@@ -37,7 +36,7 @@ const sections = [
     title: "Programming Languages",
     value: "programming-languages",
     content: (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {[
           { src: "/logos/java.png", alt: "Java" },
           { src: "/logos/python-logo.png", alt: "Python" },
@@ -55,7 +54,7 @@ const sections = [
     title: "Databases",
     value: "databases",
     content: (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {[
           { src: "/logos/mysql.png", alt: "MySQL" },
           { src: "/logos/postgres.png", alt: "PostgreSQL" },
@@ -71,7 +70,7 @@ const sections = [
     title: "Frameworks",
     value: "frameworks",
     content: (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {[
           { src: "/logos/react.png", alt: "React" },
           { src: "/logos/node.png", alt: "Node.js" },
@@ -87,7 +86,7 @@ const sections = [
     title: "Mobile Development",
     value: "mobile",
     content: (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         <BubbleImage src="/logos/reactnative.png" alt="React Native" />
       </div>
     ),
@@ -96,7 +95,7 @@ const sections = [
     title: "Project Management",
     value: "pm",
     content: (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {[
           { src: "/logos/clickup.png", alt: "ClickUp" },
           { src: "/logos/jira.png", alt: "Jira" },
@@ -108,7 +107,6 @@ const sections = [
     ),
   },
 ];
-
 
 // Tabs Component
 export const Tabs = ({
@@ -130,7 +128,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-start overflow-auto no-visible-scrollbar max-w-full w-full space-x-4",
+          "flex flex-row items-center justify-start overflow-auto no-visible-scrollbar max-w-full w-full space-x-3 md:space-x-4",
           containerClassName
         )}
       >
@@ -139,7 +137,7 @@ export const Tabs = ({
             key={tab.title}
             onClick={() => setActive(tab)}
             className={cn(
-              "relative px-4 py-2 rounded-full transition-colors duration-300",
+              "relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors duration-300 text-xs md:text-base",
               tabClassName,
               active.value === tab.value && activeTabClassName
             )}
@@ -164,7 +162,7 @@ export const Tabs = ({
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.5 }}
-        className={cn("mt-8", contentClassName)}
+        className={cn("mt-6 md:mt-8", contentClassName)}
       >
         {active.content}
       </motion.div>
@@ -175,16 +173,16 @@ export const Tabs = ({
 // Main MySkills Component
 export function MySkills() {
   return (
-    <div className="max-w-5xl mx-auto px-8">
-      <h2 className="text-4xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
+    <div className="max-w-5xl mx-auto px-4 md:px-8">
+      <h2 className="text-3xl text-center md:text-5xl font-bold text-neutral-200 dark:text-white font-sans">
         My Skills and Technologies
       </h2>
       <Tabs
         tabs={sections}
-        containerClassName="my-8"
+        containerClassName="my-6 pl-4 mx-0 md:mx-4 pr-4 md:my-8"
         activeTabClassName="bg-blue-500 text-white"
         tabClassName="text-gray-500 hover:text-blue-500"
-        contentClassName="py-10"
+        contentClassName="py-6 px-4 md:py-10"
       />
     </div>
   );
