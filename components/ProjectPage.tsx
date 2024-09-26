@@ -41,22 +41,22 @@ function ProfilePage() {
       </h2>
 
       {/* Tabs Container */}
-      <div className="flex flex-row pl-24 ml-4 md:space-x-6  md:mr-20 items-center justify-center overflow-auto no-visible-scrollbar space-x-4 max-w-full px-4 mt-9">
+      <div className="flex flex-row pl-24 ml-4 md:space-x-6  md:mr-20 items-center justify-center overflow-auto  no-visible-scrollbar space-x-4 max-w-full px-4 mt-9">
         {tabs.map((tab, idx) => (
           <button
             key={tab.title}
             onClick={() => setSelectedIndex(idx)}
-            className={`relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors duration-300 ${
+            className={`relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors  duration-300 ${
               selectedIndex === idx
-                ? "bg-gray-200 dark:bg-blue-700 text-black dark:text-white"
-                : "bg-transparent text-blue-700 dark:text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                ? "bg-gray-200 dark:bg-blue-700 text-black dark:text-white "
+                : "bg-transparent text-blue-700 dark:text-blue-100 border border-gray-300 dark:border-gray-700 hover:bg-white/[0.12] hover:text-white"
             } text-sm md:text-base`}
           >
             {selectedIndex === idx && (
               <motion.div
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
-                className="absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full"
+                className="absolute inset-0 bg-gray-200 dark:bg-slate-600 rounded-full"
               />
             )}
             <span className="relative block text-black dark:text-white">

@@ -137,7 +137,7 @@ export const Tabs = ({
             key={tab.title}
             onClick={() => setActive(tab)}
             className={cn(
-              "relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors duration-300 text-xs md:text-base",
+              "relative px-2 py-2 md:px-4 md:py-2 rounded-full transition-colors duration-300 text-xs md:text-base border border-gray-300 dark:border-gray-700", // Add border classes here
               tabClassName,
               active.value === tab.value && activeTabClassName
             )}
@@ -146,7 +146,7 @@ export const Tabs = ({
               <motion.div
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
-                className="absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full"
+                className="absolute inset-0 bg-gray-200 dark:bg-slate-700 rounded-full"
               />
             )}
 
